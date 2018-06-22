@@ -1,0 +1,16 @@
+# Script which will download the drop list as a text file
+/system script add name="Download_blacklists" source={
+/tool fetch url="https://pure-ftpd-webui.org/blacklists.rsc" mode=https;
+:log info "Downloaded blacklists.rsc";
+}
+
+# Script which will Remove old Begone list and add new one
+/system script add name="Update_blacklists" source={
+/ip firewall address-list remove [/ip firewall address-list find comment="BLACKLIST"];
+/import file-name=blacklists.rsc;
+:log info "Removal old blacklists and add new";
+}
+
+# Schedule the download and application of the openbl list
+/system scheduler add comment="Download blacklists" interval=1h name="DownloadBlackLists" on-event=Download_blacklists start-date=jan/01/1970 start-time=01:05:00
+/system scheduler add comment="Update BlackList" interval=1h name="InstallBlackLists" on-event=Update_blacklists start-date=jan/01/1970 start-time=01:15:00

@@ -1,0 +1,4 @@
+.idea/*
+blacklists.rsc
+blacklist_db.cfg
+GeoIP.dat

@@ -1,0 +1,8 @@
+[general]
+log_file = blacklist_db.log
+mysql_ip = 10.10.10.10
+mysql_user = fancy_username
+mysql_password = secure_password
+mysql_db = fail2ban
+
+#ban_count = 10
