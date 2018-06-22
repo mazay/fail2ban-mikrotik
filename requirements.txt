@@ -1,0 +1,5 @@
+# Python 2.7 is required
+# to install requirements run the following command:
+# pip install -r requirements.txt
+pygeoip==0.3.2
+MySQL-python
